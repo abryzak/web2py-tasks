@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='web2py-tasks',
-      version='1.2',
+      version='1.3',
       author='Adam Bryzak',
       author_email='adam@bryzak.net',
       py_modules=['task_decorator'],

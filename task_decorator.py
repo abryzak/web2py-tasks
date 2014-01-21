@@ -65,9 +65,9 @@ def task(tasks=None, **kwargs):
         return t
     return wrap
 
-def tasks_table(db):
-    from gluon.dal import Table, Field
-    return db.Table(db, 'task',
-        Field('name'),
-        Field('last_run', 'datetime'),
-        )
+def define_table(db, *extra_fields):
+    from gluon.dal import Field
+    args = list(extra_fields)
+    args.append(Field('name', notnull=True, unique=True))
+    args.append(Field('last_run', 'datetime'))
+    db.define_table('task', *args)
