@@ -64,3 +64,10 @@ def task(tasks=None, **kwargs):
         if tasks is not None: tasks.append(t)
         return t
     return wrap
+
+def tasks_table(db):
+    from gluon.dal import Table, Field
+    return db.Table(db, 'task',
+        Field('name'),
+        Field('last_run', 'datetime'),
+        )
